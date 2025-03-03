@@ -4,6 +4,7 @@ import { Modal } from 'bootstrap';
 import Pagination from '../components/Pagination';
 import ProductModal from '../components/ProductModal';
 import DelProductModal from '../components/DelProductModal';
+import Toast from '../components/Toast';
 
 const BASE_URL = import.meta.env.VITE_BASE_URL;
 const API_PATH = import.meta.env.VITE_API_PATH;
@@ -127,6 +128,8 @@ function Product() {
     <ProductModal modalMode={modalMode} getProducts={getProducts} tempProduct={tempProduct} isOpen={isProductModalOpen} setIsOpen={setIsProductModalOpen} />
 
     <DelProductModal tempProduct={tempProduct} getProducts={getProducts} isOpen={isDelProductModalOpen} setIsOpen={setIsDelProductModalOpen}/>
+    
+    <Toast />
     </>  
     ) 
 }
