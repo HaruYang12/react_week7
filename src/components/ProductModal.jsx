@@ -91,14 +91,17 @@ function ProductModal({modalMode, tempProduct, isOpen, setIsOpen, getProducts}) 
               origin_price: Number(modalData.origin_price),
               price: Number(modalData.price),
               is_enabled: modalData.is_enabled ? 1 : 0
-            }
-          }) 
+            }})
+            dispatch(pushMessage({
+              text: '新增產品成功',
+              status: 'success'
+            })) 
         } catch (error) {
             // alert('新增產品失敗');
             const { message } = error.response.data;
 
             dispatch(pushMessage({
-              text: messag.join("、"),
+              text: message.join("、"),
               status: 'failed'
             }))
         }
@@ -120,7 +123,11 @@ function ProductModal({modalMode, tempProduct, isOpen, setIsOpen, getProducts}) 
           }))
           
         } catch (error) {
-            alert('編輯產品失敗');
+            // alert('編輯產品失敗');
+            dispatch(pushMessage({
+              text: '編輯產品失敗',
+              status: 'failed'
+            }))
         }
       }
 
@@ -133,9 +140,18 @@ function ProductModal({modalMode, tempProduct, isOpen, setIsOpen, getProducts}) 
           getProducts();
     
           handleCloseProductModal();
-    
+
+          dispatch(pushMessage({
+            text: '更新產品成功',
+            status: 'success'
+          }))
+
         } catch (error) {
-          alert('更新產品失敗')
+          // alert('更新產品失敗')
+          dispatch(pushMessage({
+            text: '更新產品失敗',
+            status: 'failed'
+          }))
         }
       }
 

@@ -7,6 +7,7 @@ const API_PATH = import.meta.env.VITE_API_PATH;
 
 function DelProductModal({tempProduct, getProducts, isOpen, setIsOpen}) {
 
+
     const delProductModalRef = useRef(null);
 
     useEffect(() => {        

@@ -40,7 +40,6 @@ function Login({getProducts,setIsAuth}) {
     
         } catch (error) {
           alert('登入失敗');
-    
         }
       }
 
